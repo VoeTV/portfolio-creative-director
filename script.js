@@ -114,6 +114,87 @@ class ParticleSystem {
     }
 }
 
+// ===== DISCORD LIVE DATA =====
+const GUILD_ID = '546810742553444382';
+const INVITE_CODE = 't5eb3v2W7';
+
+async function fetchDiscordData() {
+    try {
+        // Fetch widget data (online members, voice channels)
+        const widgetRes = await fetch(`https://discord.com/api/guilds/${GUILD_ID}/widget.json`);
+        const widgetData = await widgetRes.json();
+
+        // Fetch invite data (member count, online count)
+        const inviteRes = await fetch(`https://discord.com/api/v10/invites/${INVITE_CODE}?with_counts=true`);
+        const inviteData = await inviteRes.json();
+
+        const memberCount = inviteData.profile?.member_count || inviteData.approximate_member_count || 0;
+        const onlineCount = widgetData.presence_count || inviteData.profile?.online_count || 0;
+        const channels = widgetData.channels || [];
+        const voiceMembers = widgetData.members || [];
+
+        // Update hero stats
+        updateStats(memberCount, channels.length, onlineCount);
+
+        // Update voice channels section
+        updateVoiceChannels(channels, voiceMembers);
+
+        // Update widget text
+        const widgetText = document.querySelector('.widget-text');
+        if (widgetText) {
+            widgetText.textContent = `+${onlineCount} online teraz`;
+        }
+
+    } catch (error) {
+        console.warn('Nie udało się pobrać danych z Discord:', error);
+    }
+}
+
+function updateStats(members, channels, online) {
+    const stats = document.querySelectorAll('.stat-number');
+    stats.forEach(stat => {
+        const label = stat.nextElementSibling?.textContent?.trim();
+        if (label === 'CZŁONKÓW') {
+            stat.setAttribute('data-target', members);
+        } else if (label === 'KANAŁÓW') {
+            stat.setAttribute('data-target', channels);
+        } else if (label === 'ONLINE') {
+            stat.setAttribute('data-target', online);
+        }
+    });
+}
+
+function updateVoiceChannels(channels, members) {
+    const voiceContainer = document.getElementById('voice-channels-list');
+    if (!voiceContainer) return;
+
+    // Count members per channel
+    const channelMemberCount = {};
+    members.forEach(member => {
+        if (member.channel_id) {
+            channelMemberCount[member.channel_id] = (channelMemberCount[member.channel_id] || 0) + 1;
+        }
+    });
+
+    // Sort channels by position
+    const sortedChannels = [...channels].sort((a, b) => a.position - b.position);
+
+    // Build HTML
+    voiceContainer.innerHTML = sortedChannels.map(channel => {
+        const count = channelMemberCount[channel.id] || 0;
+        const usersHtml = count > 0
+            ? `<span class="channel-users">${count} ${count === 1 ? 'osoba' : count < 5 ? 'osoby' : 'osób'}</span>`
+            : '';
+        return `
+            <div class="channel-item voice">
+                <span class="channel-hash">🔊</span>
+                <span class="channel-name">${channel.name}</span>
+                ${usersHtml}
+            </div>
+        `;
+    }).join('');
+}
+
 // ===== STAT COUNTER ANIMATION =====
 function animateStats() {
     const stats = document.querySelectorAll('.stat-number');
@@ -208,7 +289,6 @@ function initChannelEffects() {
 
 // ===== TYPING EFFECT FOR TERMINAL =====
 function initTypingEffect() {
-    const terminalOutputs = document.querySelectorAll('.terminal-output');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -240,9 +320,13 @@ function initWidgetAnimation() {
 }
 
 // ===== INITIALIZE =====
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     new ParticleSystem();
+
+    // Fetch live Discord data first, then animate stats
+    await fetchDiscordData();
     animateStats();
+
     initSmoothScroll();
     initScrollAnimations();
     initNavScroll();
