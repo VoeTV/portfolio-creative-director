@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c3ce0"/>
+      <stop offset="50%" style="stop-color:#5865F2"/>
+      <stop offset="100%" style="stop-color:#00d4ff"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#1a1a2e" stroke="url(#logoGrad)" stroke-width="3"/>
+  <!-- Inner decorative ring -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="url(#logoGrad)" stroke-width="1" opacity="0.4"/>
+  <!-- UK Letters -->
+  <text x="100" y="88" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="52" font-weight="900" fill="url(#logoGrad)" filter="url(#glow)">UK</text>
+  <!-- Name below -->
+  <text x="100" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#e8e8f0" letter-spacing="3">ULANA</text>
+  <text x="100" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#00d4ff" letter-spacing="3">KANCIAPA</text>
+  <!-- Decorative elements -->
+  <line x1="45" y1="148" x2="85" y2="148" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.6"/>
+  <line x1="115" y1="148" x2="155" y2="148" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="100" cy="148" r="2" fill="#00d4ff"/>
+  <!-- Corner accents -->
+  <path d="M 25 40 L 25 25 L 40 25" fill="none" stroke="#6c3ce0" stroke-width="2" opacity="0.6"/>
+  <path d="M 175 40 L 175 25 L 160 25" fill="none" stroke="#6c3ce0" stroke-width="2" opacity="0.6"/>
+  <path d="M 25 160 L 25 175 L 40 175" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+  <path d="M 175 160 L 175 175 L 160 175" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+  <!-- Discord icon small -->
+  <path d="M 88 158 C 88 158 91 155 95 155 C 99 155 102 158 102 158 C 102 158 99 161 95 161 C 91 161 88 158 88 158 Z" fill="#5865F2" opacity="0.7"/>
+  <path d="M 98 158 C 98 158 101 155 105 155 C 109 155 112 158 112 158 C 112 158 109 161 105 161 C 101 161 98 158 98 158 Z" fill="#5865F2" opacity="0.7"/>
+</svg>
