@@ -145,6 +145,12 @@ async function fetchDiscordData() {
             widgetText.textContent = `+${onlineCount} online teraz`;
         }
 
+        // Update member count in roles
+        const memberRoleCount = document.getElementById('role-member-count');
+        if (memberRoleCount) {
+            memberRoleCount.textContent = memberCount;
+        }
+
     } catch (error) {
         console.warn('Nie udało się pobrać danych z Discord:', error);
     }
