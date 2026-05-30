@@ -489,6 +489,25 @@ body {
     margin-bottom: 1rem;
     padding-bottom: 0.8rem;
     border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.voice-live-badge {
+    font-size: 0.55rem;
+    color: var(--neon-green);
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
 .channel-list {
