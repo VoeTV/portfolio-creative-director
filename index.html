@@ -48,7 +48,7 @@
                 <span class="title-line">ULANA</span>
                 <span class="title-line accent">KANCIAPA</span>
             </h1>
-            <p class="hero-subtitle">Polska społeczność Discord dla graczy, twórców i ludzi z poczuciem humoru. Dołącz do nas — tu zawsze jest miejsce dla Ciebie!</p>
+            <p class="hero-subtitle">Luźny serwer dla dobrych ziomków! Zero spiny, tylko śmiech, memy i dobra atmosfera. Wbijaj! 🎉💬</p>
             <div class="hero-stats">
                 <div class="stat">
                     <span class="stat-number" data-target="0">0</span>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="terminal-body">
                     <p class="terminal-line"><span class="prompt">$</span> <span class="cmd">cat opis.txt</span></p>
-                    <p class="terminal-output">Ulana Kanciapa to polska społeczność Discord, gdzie spotykają się gracze, twórcy i ludzie szukający dobrej zabawy.</p>
+                    <p class="terminal-output">Ulana Kanciapa – luźny serwer dla dobrych ziomków! Zero spiny, tylko śmiech, memy i dobra atmosfera.</p>
                     <p class="terminal-line"><span class="prompt">$</span> <span class="cmd">cat zasady.txt</span></p>
                     <p class="terminal-output">→ Szanuj innych członków</p>
                     <p class="terminal-output">→ Baw się dobrze</p>
@@ -143,73 +143,77 @@
         </div>
         <div class="channels-grid">
             <div class="channel-category">
-                <h3 class="category-title">📋 INFORMACJE</h3>
+                <h3 class="category-title">『📋』INFORMACJE</h3>
                 <div class="channel-list">
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">zasady</span>
+                        <span class="channel-name">『👋』wejścia</span>
                     </div>
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">ogłoszenia</span>
+                        <span class="channel-name">『📜』zasady</span>
                     </div>
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">role-do-wyboru</span>
+                        <span class="channel-name">『📢』ogłoszenia</span>
+                    </div>
+                    <div class="channel-item">
+                        <span class="channel-hash">#</span>
+                        <span class="channel-name">『🎭』role</span>
                     </div>
                 </div>
             </div>
             <div class="channel-category">
-                <h3 class="category-title">💬 ROZMOWY</h3>
+                <h3 class="category-title">『💬』ROZMOWY</h3>
                 <div class="channel-list">
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">ogólny</span>
+                        <span class="channel-name">『💬』ogólny</span>
                         <span class="channel-badge active">aktywny</span>
                     </div>
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">memy</span>
+                        <span class="channel-name">『😂』memy</span>
                         <span class="channel-badge hot">🔥</span>
                     </div>
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">multimedia</span>
+                        <span class="channel-name">『🖼️』multimedia</span>
                     </div>
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">muzyka</span>
+                        <span class="channel-name">『🎵』muzyka</span>
                     </div>
                 </div>
             </div>
             <div class="channel-category">
-                <h3 class="category-title">🎮 GRY</h3>
+                <h3 class="category-title">『🎮』GRY</h3>
                 <div class="channel-list">
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">szukam-ekipy</span>
+                        <span class="channel-name">『🎮』szukam-ekipy</span>
                         <span class="channel-badge active">aktywny</span>
                     </div>
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">valorant</span>
+                        <span class="channel-name">『🔫』valorant</span>
                     </div>
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">league-of-legends</span>
+                        <span class="channel-name">『⚔️』league-of-legends</span>
                     </div>
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">minecraft</span>
+                        <span class="channel-name">『⛏️』minecraft</span>
                     </div>
                     <div class="channel-item">
                         <span class="channel-hash">#</span>
-                        <span class="channel-name">cs2</span>
+                        <span class="channel-name">『💣』cs2</span>
                     </div>
                 </div>
             </div>
             <div class="channel-category">
-                <h3 class="category-title">🔊 VOICE <span class="voice-live-badge">● LIVE</span></h3>
+                <h3 class="category-title">『🔊』VOICE <span class="voice-live-badge">● LIVE</span></h3>
                 <div class="channel-list" id="voice-channels-list">
                     <div class="channel-item voice">
                         <span class="channel-hash">🔊</span>
@@ -230,36 +234,31 @@
         <div class="community-content">
             <div class="roles-section">
                 <h3 class="roles-title">ROLE NA SERWERZE</h3>
-                <div class="roles-grid">
-                    <div class="role-card owner">
+                <div class="roles-grid" id="roles-grid">
+                    <div class="role-card">
                         <span class="role-dot" style="background: #ff0000;"></span>
                         <span class="role-name">👑 Właściciel</span>
                         <span class="role-count">1</span>
                     </div>
-                    <div class="role-card admin">
-                        <span class="role-dot" style="background: #ff6b6b;"></span>
+                    <div class="role-card">
+                        <span class="role-dot" style="background: #e74c3c;"></span>
                         <span class="role-name">⚔️ Admin</span>
-                        <span class="role-count">4</span>
+                        <span class="role-count">2</span>
                     </div>
-                    <div class="role-card mod">
-                        <span class="role-dot" style="background: #ffd93d;"></span>
+                    <div class="role-card">
+                        <span class="role-dot" style="background: #f39c12;"></span>
                         <span class="role-name">🛡️ Moderator</span>
-                        <span class="role-count">8</span>
+                        <span class="role-count">3</span>
                     </div>
-                    <div class="role-card vip">
-                        <span class="role-dot" style="background: #6c3ce0;"></span>
-                        <span class="role-name">💎 VIP</span>
-                        <span class="role-count">25</span>
+                    <div class="role-card">
+                        <span class="role-dot" style="background: #9b59b6;"></span>
+                        <span class="role-name">💎 OG</span>
+                        <span class="role-count">5</span>
                     </div>
-                    <div class="role-card member">
-                        <span class="role-dot" style="background: #00d4ff;"></span>
-                        <span class="role-name">🎮 Gracz</span>
-                        <span class="role-count">800+</span>
-                    </div>
-                    <div class="role-card member">
-                        <span class="role-dot" style="background: #00ff88;"></span>
-                        <span class="role-name">🆕 Nowy</span>
-                        <span class="role-count">400+</span>
+                    <div class="role-card">
+                        <span class="role-dot" style="background: #3498db;"></span>
+                        <span class="role-name">🎮 Członek</span>
+                        <span class="role-count" id="role-member-count">—</span>
                     </div>
                 </div>
             </div>
@@ -326,7 +325,7 @@
         <div class="footer-content">
             <div class="footer-left">
                 <img src="logo.svg" alt="UK" class="footer-logo">
-                <span class="footer-text">© 2026 Ulana Kanciapa // Wszystkie prawa zastrzeżone</span>
+                <span class="footer-text">© 2026 Ulana Kanciapa // by Voe</span>
             </div>
             <div class="footer-links">
                 <a href="https://discord.gg/t5eb3v2W7" target="_blank" class="footer-link">Discord</a>
